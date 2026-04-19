@@ -1,3 +1,4 @@
+import cloudinary
 """
 Django settings for config project.
 
@@ -38,8 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+#    third-party apps
+    
     'rest_framework',
     'products',
+
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -118,3 +124,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+
+cloudinary.config(
+    cloud_name = "dvv7jn0cg",
+    api_key = "277788278256369",
+    api_secret = "k7SAdomT0HGCyQyrME9NhZOmu-8",
+)
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
